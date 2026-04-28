@@ -1,0 +1,19 @@
+# Railway Configuration for ShopHippo App
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "npm run railway-start"
+healthcheckPath = "/app"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+
+[[services]]
+name = "shophippo"
+
+[services.variables]
+NODE_ENV = "production"
+PORT = "3000"
+
+# Database will be automatically added by Railway
+# DATABASE_URL will be set when you add PostgreSQL service
